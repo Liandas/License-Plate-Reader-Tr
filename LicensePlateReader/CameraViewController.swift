@@ -7,6 +7,7 @@
 
 import AVFoundation
 import UIKit
+import UIKit
 
 class CameraViewController: UIViewController ,AVCaptureVideoDataOutputSampleBufferDelegate,AVCapturePhotoCaptureDelegate{
     
@@ -200,4 +201,25 @@ class CameraViewController: UIViewController ,AVCaptureVideoDataOutputSampleBuff
         }
     }
 
+}
+
+extension CGImagePropertyOrientation {
+    static var currentRearCameraOrientation: CGImagePropertyOrientation {
+        self.init(isUsingFrontFacingCamera: false)
+    }
+    
+    init(isUsingFrontFacingCamera: Bool, deviceOrientation: UIDeviceOrientation = UIDevice.current.orientation) {
+        switch deviceOrientation {
+        case .portrait:
+            self = .right
+        case .portraitUpsideDown:
+            self = .left
+        case .landscapeLeft:
+            self = isUsingFrontFacingCamera ? .down : .up
+        case .landscapeRight:
+            self = isUsingFrontFacingCamera ? .up : .down
+        default:
+            self = .right
+        }
+    }
 }
