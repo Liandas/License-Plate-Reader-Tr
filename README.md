@@ -16,9 +16,9 @@ Recognition Process: The app will automatically process the image, detecting the
 View Results: Instantly view the recognized license plate number on the screen.
 
 Restrictions
-For now it works only on Portrait mode.
-ML Confidence level is + .8
-Uses static MLModel.
+* For now it works only on Portrait mode.
+* ML Confidence level is + .8
+* Uses static MLModel.
 
 
 Contributions:
